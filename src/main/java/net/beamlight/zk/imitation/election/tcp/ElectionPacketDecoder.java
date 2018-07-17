@@ -18,7 +18,7 @@ public class ElectionPacketDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
-        byte[] dst = new byte[1024];
+        byte[] dst = new byte[in.readableBytes()];
         in.readBytes(dst);
         LOG.info("decode bytes: {}", ByteArrayUtils.hexDump(dst));
     }
